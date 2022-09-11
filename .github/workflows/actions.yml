@@ -1,0 +1,19 @@
+name: Actions Workflow
+
+on: [push]
+
+jobs:
+  run-with-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run Hello World Actions
+        # give an id to this step so that we can reference it later
+        id: greet
+        # to use an action, add "uses" key
+        uses: actions/hello-world-javascript-action@v1
+        # use "with" key to add parameters
+        with:
+          who-to-greet: 'Autumn'
+      - name: Log Greeting time
+        # the output id is defined in actions/hello-world-javascript-action document
+        run: echo "${{ steps.greet.outputs.time }}"
