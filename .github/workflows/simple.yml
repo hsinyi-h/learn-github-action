@@ -25,3 +25,14 @@ jobs:
           print(platform.processor())
         # to inform Github action to run it on python shell
         shell: python
+  # create another job to run on windows
+  # each job runs on different container
+  # by default, they run on parrallel
+  run-windows-commands:
+    runs-on: windows-latest
+    steps:
+      - name: Directory Powershell
+        run: Get-Location
+      - name: Direcotry Bash
+        run: pwd
+        shell: bash 
