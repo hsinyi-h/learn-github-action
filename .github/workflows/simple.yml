@@ -19,3 +19,9 @@ jobs:
         run: |
           node -v
           npm -v
+      - name: python command
+        run: |
+          import platform
+          print(platform.processor())
+        # to inform Github action to run it on python shell
+        shell: python
