@@ -30,6 +30,8 @@ jobs:
   # by default, they run on parrallel
   run-windows-commands:
     runs-on: windows-latest
+    # to start the job only after the previous job completed, speficy needs
+    needs: ["run-shell-command"]
     steps:
       - name: Directory Powershell
         run: Get-Location
